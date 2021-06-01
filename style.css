@@ -10,5 +10,19 @@ body {
 .jumbotron {
     margin: 20%;
     background-color: rgba(9, 25, 95, 0.986);
-    color: rgb(240, 151, 151);
+    color: rgb(240, 65, 65);
+}
+
+form {
+    font-size: 22px;
+}
+
+#info {
+    font-size: 25px;
+    color: cadetblue;
+}
+
+span {
+    color: rgb(243, 204, 204);
+    text-decoration: underline;
 }

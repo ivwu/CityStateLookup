@@ -19,12 +19,16 @@ const cityStates = [{
 //declare elements from html
 const stateDropdown = document.getElementById("stateList");
 const cityDropdown = document.getElementById("cityList");
+const info = document.getElementById("info")
 
 window.onload = function() {
     displayState(cityStates);
 
     //add onchange listener for when there is a change in state drop down
     stateDropdown.onchange = displayCities;
+    
+    //add onchange listener for when city is selected
+    cityDropdown.onchange = displayInfo;
 }
 
 function displayState(arr) {
@@ -45,15 +49,21 @@ function displayState(arr) {
 
 function displayCities() {    
     //if there are any cities from previous load, remove them all
-    while (cityDropdown.firstChild) {
-        cityDropdown.removeChild(cityDropdown.firstChild);
-    }
+
+    // while (cityDropdown.firstChild) {
+    //     cityDropdown.removeChild(cityDropdown.firstChild);
+    // }
+
+    cityDropdown.options.length = 0
+
     //find the reference to the dropdown 
     let selectedState = stateDropdown.value;
 
     //if the seleted one is the first option for Select One; display alert to select an actual state
     if (selectedState === "") {
-        alert("Please select a state to see its cities!");
+        // alert("Please select a state to see its cities!");
+        let cityOption = new Option("Select a state first...", "")
+        cityDropdown.appendChild(cityOption)
         return;
     }
 
@@ -68,4 +78,29 @@ function displayCities() {
         let cityOptions = new Option(foundState.cities[i], foundState.cities[i]);
         cityDropdown.appendChild(cityOptions);
     }
+}
+
+function displayInfo() {
+    //erase any previous messages
+    info.innerHTML = ""
+
+    //get the selected state
+    let selectedCity = cityDropdown.value
+    //find the state
+    // let foundState = cityStates.find(state => state.stateAbbr === selectedState)
+
+    if (selectedCity === "") {
+        return
+    }
+
+    //get selected state
+    let selectedStateIndex = stateDropdown.selectedIndex;
+    console.log(selectedStateIndex);
+    let selectedState = stateDropdown.options[selectedStateIndex].text
+    console.log(selectedState);
+
+
+    //build message
+    let message = "<span>State:</span> " + selectedState + "<br>" + "<span>City:</span> " + selectedCity
+    info.innerHTML = message
 }
