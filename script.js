@@ -60,6 +60,9 @@ function displayCities() {
     // find the state object that was seletec
     let foundState = cityStates.find(data => data.stateAbbr === selectedState);
 
+    let theOption = new Option("Select one...", "");
+    cityDropdown.appendChild(theOption);
+
     // loop through the cities of the found state selected
     for (let i = 0; i < foundState.cities.length; i++) {
         let cityOptions = new Option(foundState.cities[i], foundState.cities[i]);
