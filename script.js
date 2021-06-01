@@ -28,6 +28,10 @@ window.onload = function() {
 function displayState(arr) {
     let theOption = new Option("Select one...", "");
     stateDropdown.appendChild(theOption);
+    // cityDropdown.appendChild(theOption)
+
+    let cityOption = new Option("Select a state first...", "")
+    cityDropdown.appendChild(cityOption)
 
     // let theOption = new Option(arr[0].state, arr[0].stateAbbr)
 
