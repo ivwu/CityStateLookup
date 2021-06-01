@@ -55,7 +55,6 @@ function displayCities() {
 
 
     for (let i = 0; i < foundState.cities.length; i++) {
-        
         let cityOptions = new Option(foundState.cities[i], foundState.cities[i]);
         cityDropdown.appendChild(cityOptions);
     }

@@ -1,0 +1,14 @@
+body {
+    background-image: url("./images/usa.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646
+}
+
+.jumbotron {
+    margin: 20%;
+    background-color: rgba(9, 25, 95, 0.986);
+    color: rgb(240, 151, 151);
+}
