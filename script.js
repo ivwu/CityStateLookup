@@ -21,6 +21,9 @@ const stateDropdown = document.getElementById("stateList");
 const cityDropdown = document.getElementById("cityList");
 const info = document.getElementById("info")
 
+// different way to find the state and store it globally
+// let selectedState = null
+
 window.onload = function() {
     displayState(cityStates);
 
@@ -31,7 +34,9 @@ window.onload = function() {
     cityDropdown.onchange = displayInfo;
 }
 
+// load all the states into statedropdown
 function displayState(arr) {
+    info.innerHTML = ""
     let theOption = new Option("Select one...", "");
     stateDropdown.appendChild(theOption);
     // cityDropdown.appendChild(theOption)
@@ -47,13 +52,14 @@ function displayState(arr) {
     }
 }
 
+//load cities into citydropdown
 function displayCities() {    
     //if there are any cities from previous load, remove them all
 
     // while (cityDropdown.firstChild) {
     //     cityDropdown.removeChild(cityDropdown.firstChild);
     // }
-
+    info.innerHTML = ""
     cityDropdown.options.length = 0
 
     //find the reference to the dropdown 
@@ -80,6 +86,7 @@ function displayCities() {
     }
 }
 
+// show info when city is picked
 function displayInfo() {
     //erase any previous messages
     info.innerHTML = ""
@@ -98,7 +105,6 @@ function displayInfo() {
     console.log(selectedStateIndex);
     let selectedState = stateDropdown.options[selectedStateIndex].text
     console.log(selectedState);
-
 
     //build message
     let message = "<span>State:</span> " + selectedState + "<br>" + "<span>City:</span> " + selectedCity
